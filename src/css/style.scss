@@ -1,0 +1,1045 @@
+:root {
+	--header-size: 6rem;
+	--bg-white: #f5f5f5;
+	--border-color: #262626;
+}
+
+html {
+	font-size: 62.5%;
+	line-height: 1.5;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	height: 100vh;
+}
+
+header {
+	display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #36809f;
+	height: var(--header-size);
+	padding: 0 1.5rem;
+	color: #d9d9d9;
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: normal;
+		line-height: 1;
+	}
+}
+
+main {
+	display: flex;
+	flex-grow: 1;
+	height: calc(100% - var(--header-size));
+
+	.sidebar {
+		background-color: #5a7d8c;
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 23rem;
+		border: var(--border-color);
+		transition: all 0.5s;
+		overflow-y: scroll;
+		line-height: 6.5rem;
+		font-size: 1.8rem;
+
+		&::-webkit-scrollbar {
+			width: 1rem;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #bbbbbb;
+			/* border-radius: 1rem; */
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #395059;
+			border-radius: 1rem;
+		}
+
+		ul li {
+			a {
+				display: block;
+				height: 100%;
+				width: 100%;
+				color: #d9d9d9;
+				padding-left: 2rem;
+				transition: .4s;
+				text-decoration: none;
+			}
+
+			&:hover a {
+				padding-left: 2.5rem;
+			}
+		}
+
+		ul a i {
+			margin-right: 1.6rem;
+		}
+	}
+
+	textarea {
+		width: 1rem
+	}
+
+	.contents,
+	.printings {
+		&::-webkit-scrollbar {
+			width: 1rem;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #bbbbbb;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #395059;
+			border-radius: 1rem;
+		}
+	}
+
+	.contents {
+		background-color: var(--bg-white);
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 100%;
+		padding: 2rem;
+		font-size: 1.8rem;
+		overflow-y: scroll;
+
+		.top-controller {
+			margin-bottom: 2rem;
+		}
+
+		h2 {
+			font-size: 2.4rem;
+			margin-bottom: 2rem;
+			border-bottom: 1px solid var(--border-color);
+		}
+
+		dl {
+			display: flex;
+			flex-wrap: wrap;
+
+			dt {
+				width: 20%;
+			}
+
+			dd {
+				width: 80%;
+
+				textarea {
+					width: 27%;
+					resize: none;
+				}
+			}
+
+			dt,
+			dd {
+				margin-top: 1rem;
+			}
+		}
+
+		.remarks textarea {
+			width: 27%;
+			resize: vertical;
+		}
+
+		.customer-code {
+
+			input[type="text"] {
+				width: 10rem;
+			}
+
+			span {
+				margin: 0 1rem;
+			}
+		}
+
+		.search {
+			margin: 2rem 0;
+
+			button {
+				margin-left: 1rem;
+				padding-top: .8rem;
+				padding-bottom: .8rem;
+			}
+		}
+
+		&.billing-information-input {
+			user-select: none;
+
+			.target-ym+button {
+				margin-left: 1.5rem;
+				margin-bottom: 2rem;
+			}
+
+			.border {
+				border-bottom: 1px solid var(--border-color);
+				margin-bottom: 2rem;
+			}
+
+			h3 {
+				line-height: 1;
+			}
+
+			.customer-count {
+				margin: 1.5rem 0;
+			}
+		}
+
+		&.customer-list .radios {
+			margin: 2rem 0;
+		}
+
+		&.customer-regist {
+			.info+.info {
+				margin-top: 2rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border-color);
+			}
+		}
+
+		.target-ym {
+			width: 8rem;
+		}
+
+		.day-format {
+			width: 4rem;
+			text-align: center;
+		}
+
+		.tbl-bdr table {
+			border-collapse: collapse;
+			border-top: 1px solid #333;
+			border-bottom: 1px solid #333;
+			text-align: right;
+			width: 100%;
+
+			td,
+			th {
+				border-bottom: 1px solid #333;
+				padding: 0.5rem 2rem;
+				text-align: left;
+			}
+
+			td {
+				.name {
+					text-align: left;
+				}
+			}
+
+			th {
+				background-color: #36809f;
+				color: #d9d9d9;
+			}
+		}
+
+		input[type="radio"]+label,
+		input[type="checkbox"]+label {
+			margin-left: 1rem;
+		}
+
+		.row-controller {
+			text-align: left;
+			width: 1%;
+			white-space: nowrap;
+
+			button+button {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
+
+.controller {
+	margin: 2rem 0;
+
+	button+button {
+		margin-left: 1rem;
+	}
+}
+
+.btn {
+	border-radius: .5rem;
+	color: #ffffff;
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 1;
+	padding: 1.5rem 3rem;
+	border: 1px solid transparent;
+	cursor: pointer;
+
+	&.btn-submit {
+		background-color: #007bff;
+		border-color: #007bff;
+
+		&:hover {
+			background-color: #0069d9;
+			border-color: #0062cc;
+		}
+	}
+
+	&.btn-edit {
+		background-color: #1e7e34;
+		border-color: #1c7430;
+
+		&:hover {
+			background-color: #218838;
+			border-color: #1e7e34;
+		}
+	}
+
+	&.btn-reset {
+		background-color: #dc3545;
+		border-color: #dc3545;
+
+		&:hover {
+			background-color: #c82333;
+			border-color: #bd2130;
+		}
+	}
+}
+
+.radios {
+	display: flex;
+
+	.radio+.radio {
+		margin-left: 2.5rem;
+	}
+}
+
+input[type="radio"],
+input[type="radio"]+label {
+	cursor: pointer;
+}
+
+.modal {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.overlay {
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, .4);
+	}
+
+	.modal-inner {
+		background-color: var(--bg-white);
+		z-index: 1;
+		padding: 3rem 5rem;
+		max-height: 80vh;
+		// min-width: 40vw;
+
+		.modal-controller {
+			margin-top: 2.5rem;
+			text-align: center;
+
+			button+button {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
+
+.alert {
+	padding: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+	line-height: 1;
+
+	&.error {
+		color: #842029;
+		background-color: #f8d7da;
+		border-color: #f5c2c7;
+	}
+
+	&.success {
+		color: #0a3622;
+		background-color: #d1e7dd;
+		border-color: #a3cfbb;
+	}
+}
+
+.has-error {
+	color: #842029;
+	font-size: 1.5rem;
+	margin-left: 1rem;
+
+	&::before {
+		content: "※";
+	}
+}
+
+@media screen {
+	main {
+		.printings {
+			width: 100%;
+			font-family: "HGPｺﾞｼｯｸE";
+			background-color: #eee;
+			overflow-y: scroll;
+
+			.alert.error,
+			.alert.success {
+				margin-bottom: 4rem;
+				font-size: 1.5rem;
+				border-radius: 0;
+			}
+		}
+	}
+
+	.sheets {
+		margin: 5mm auto;
+		box-shadow: 0 .5mm 2mm rgba(0, 0, 0, .3);
+	}
+
+	.to-portrait {
+		width: 148mm;
+		height: 100mm;
+	}
+}
+
+.print-sticker {
+	.sheets {
+		background-color: #fff;
+		height: 297mm;
+		width: 210mm;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 12.5mm 0;
+		font-size: 3.15mm;
+		page-break-after: always;
+
+		.sheet {
+			height: 34mm;
+			width: 70mm;
+			padding: 4.5mm 8mm 0.5mm 8mm;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			line-height: 1;
+
+			.sheet1 {
+				text-align: left;
+			}
+
+			.sheet2 {
+				margin-top: .5mm;
+			}
+
+			.sheet2,
+			.sheet3 {
+				line-height: 1.5;
+				padding-left: 2mm;
+			}
+
+			.sheet3 {
+				margin: auto 0 0;
+				flex-basis: 9.3mm;
+			}
+
+			.sheet4 {
+				text-align: right;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+.print-letter1 {
+	font-size: 9pt;
+
+	.sheets {
+		width: 148mm;
+		height: 100mm;
+		background-color: #fff;
+
+		.letter {
+			font-family: 'ＭＳ Ｐ明朝';
+			height: 100%;
+			width: 100%;
+			line-height: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: center;
+
+			.seikyus {
+				padding: 0 15mm;
+				display: flex;
+				justify-content: space-around;
+				align-items: flex-end;
+
+				.seikyu {
+					font-size: 11pt;
+					font-weight: bold;
+					text-align: center;
+					letter-spacing: 5mm;
+					text-indent: 5mm;
+					width: 56mm;
+					border: solid 1px;
+					padding: 1mm 0;
+					background-color: #fff;
+					background-image: radial-gradient(#c0c0c0 30%, transparent 30%);
+					background-size: 0.7mm 0.7mm;
+					flex: 0 0 auto;
+					margin: 0 auto;
+
+				}
+
+				.seikyuday {
+					flex: 0 1 auto;
+					margin: 0 0 0 auto;
+				}
+			}
+
+			.detail {
+				padding: 0 15mm;
+			}
+
+			.customer,
+			.sanyo {
+				padding-left: 1mm;
+			}
+
+			.customer {
+				width: 100%;
+				font-size: 12pt;
+				font-weight: bold;
+				text-decoration: underline;
+				text-decoration-skip-ink: none;
+				margin-top: 4mm;
+				line-height: 1.5;
+			}
+
+			// ５０文字用二列
+			.customer502 {
+				width: 184mm;
+				font-size: 11pt;
+				font-weight: bold;
+				text-decoration: underline;
+				margin-top: -1.8mm;
+				line-height: 1.2;
+			}
+
+			.cell {
+				margin: 0 auto;
+				text-align: center;
+				margin-top: 1mm;
+
+				table {
+					border-collapse: collapse;
+					width: 100%;
+
+					th,
+					td {
+						padding: .5mm 0;
+						line-height: 1.2;
+					}
+
+					th {
+						border: solid 1px;
+						font-weight: lighter;
+
+						&.a-subscription,
+						&.sales-taxs1 {
+							font-size: 8pt;
+						}
+
+						&.term {
+							letter-spacing: 6mm;
+							text-indent: 6mm;
+						}
+
+						&.total {
+							letter-spacing: 4mm;
+							text-indent: 4mm;
+						}
+					}
+
+					// todo高さ調整
+					td {
+						border: solid 1px;
+						padding: 3mm 1mm;
+
+
+						&.right {
+							text-align: right;
+						}
+					}
+				}
+
+			}
+
+
+			.sanyo {
+				margin: 0 auto;
+				margin-top: 2.5mm;
+			}
+
+			// 画像7mm　隙間1ｍｍ
+			.numbers {
+				font-size: 9pt;
+				font-weight: bold;
+				padding-top: 6.75mm;
+				background: url(../../public/img/sanyo_moji.svg) transparent no-repeat top center;
+				background-size: auto 6.75mm;
+				font-family: 'Arial';
+				margin-top: 1mm;
+
+				.number {
+					text-align: center;
+
+					span+span {
+						margin-left: 4mm;
+					}
+				}
+			}
+
+			.address {
+				font-size: 8pt;
+				margin: 0 auto;
+				margin-top: 2mm;
+
+				.ads {
+					span+span {
+						margin-left: 2mm;
+					}
+				}
+			}
+
+			.line {
+				background: url(../../public/img/line_long.svg) transparent no-repeat top center;
+				background-size: auto 1mm;
+				width: 90%;
+				height: 1mm;
+				margin: 1.5mm auto;
+				border: none;
+			}
+
+			.banking {
+				font-size: 8pt;
+				font-family: 'Arial';
+				padding: 0 20mm;
+				line-height: 1.4;
+
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+
+					li {
+						width: 50%;
+					}
+				}
+			}
+
+			.last {
+				font-size: 8pt;
+				font-weight: bold;
+				margin: 0 auto;
+				margin-top: 2mm;
+			}
+		}
+	}
+}
+
+.print-letter2 {
+	font-size: 9pt;
+
+	.sheets {
+		width: 148mm;
+		height: 100mm;
+		page-break-after: always;
+		background-color: #fff;
+
+		.letter {
+			font-family: 'Arial';
+			height: 100%;
+			width: 100%;
+			line-height: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: center;
+
+			.seikyus {
+				padding: 0 4mm 0 6mm;
+				font-family: 'ＭＳ Ｐ明朝';
+
+				.seikyu {
+					text-decoration: none;
+					border-bottom: 1px solid rgb(0, 0, 0);
+					padding-bottom: 0 1.5mm 1mm 1mm;
+					display: inline-flex;
+					margin-top: 5mm;
+					align-items: baseline;
+
+					.name {
+						font-size: 14pt;
+					}
+
+					// ５０文字
+					.name502 {
+						flex-grow: 1;
+						flex-shrink: 0;
+						font-size: 14pt;
+						/* transform-origin: 0 center; */
+						/* transform: scale(0.9); */
+						text-align: left;
+					}
+
+					.dono50 {
+						flex-grow: 0;
+						flex-shrink: 1;
+						font-size: 7pt;
+						transform-origin: 0 center;
+						transform: scale(0.91);
+					}
+
+					.dono {
+						flex-grow: 0;
+						flex-shrink: 1;
+						font-size: 14pt;
+						margin-left: 2mm;
+					}
+
+				}
+
+				.seikyu::before {
+					display: inline-block;
+				}
+
+				.seikyuday {
+					flex: 0 1 auto;
+					margin: 0 0 0 auto;
+					text-align: right;
+
+					span+span {
+						margin-left: 2mm;
+					}
+
+					.suuji {
+						font-size: 11pt;
+					}
+				}
+			}
+
+			.cell {
+				display: flex;
+				gap: 3mm;
+				padding: 0 4mm 0 6mm;
+				font-size: 11pt;
+				margin-top: 4mm;
+				// height: 49mm;
+				line-height: 1;
+
+				.font-mincho {
+					font-family: 'ＭＳ Ｐ明朝';
+				}
+
+				.receipt,
+				.invoice {
+					flex-grow: 1;
+					flex-shrink: 1;
+					flex-basis: 50%;
+					display: flex;
+					flex-wrap: wrap;
+					border: solid 1px #000;
+					border-radius: 2mm;
+
+					>* {
+						border-bottom: solid 1px;
+						width: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+					}
+
+					.header {
+						font-size: 10.5pt;
+						height: 10mm;
+
+						span+span {
+							margin-left: 2mm;
+						}
+					}
+
+					.message {
+						flex-direction: column;
+						gap: 1.1mm;
+						height: 17mm;
+						padding: 0 3mm;
+
+						.suuji {
+							display: inline-block;
+							width: 6.5mm;
+							margin: 0 2mm;
+							text-align-last: right;
+						}
+
+						>p {
+							text-align-last: justify;
+							width: 100%;
+
+							&:last-child {
+								text-align-last: left;
+							}
+						}
+					}
+
+					.year {
+						height: 9mm;
+
+						span+span {
+							margin-left: 7mm;
+						}
+
+					}
+
+
+					.right1,
+					.right3,
+					.right4 {
+						font-size: 10pt;
+					}
+
+					.right1,
+					.right2,
+					.right3,
+					.right4 {
+						height: 6mm;
+						text-align: center;
+						line-height: 1.3;
+						font-family: "HGPｺﾞｼｯｸE";
+
+						span+span {
+							margin-left: 2mm;
+						}
+					}
+
+					.right4 {
+						span+span {
+							margin-left: .8mm;
+						}
+					}
+				}
+
+				.receipt {
+					.header {
+						font-size: 11.5pt;
+					}
+				}
+
+				.right1 {
+					width: 25%;
+				}
+
+				.right2 {
+					width: 75%;
+				}
+
+				.right3,
+				.right4 {
+					width: 50%;
+					border-bottom: none;
+				}
+
+				.right1,
+				.right3 {
+					border-right: solid 1px;
+				}
+
+			}
+
+			.suuji,
+			.right2 {
+				font-family: "HGPｺﾞｼｯｸE";
+			}
+
+			.numbers {
+				font-size: 9pt;
+				font-weight: bold;
+				padding-top: 8mm;
+				background: url(../../public/img/sanyo_logo.svg) transparent no-repeat top center;
+				background-size: auto 8mm;
+				margin-top: 3.5mm;
+
+				.number {
+					text-align: center;
+					margin-top: 1mm;
+
+					span+span {
+						margin-left: 1mm;
+					}
+				}
+			}
+
+			.address {
+				margin: 2.5mm auto 0;
+
+				span+span {
+					margin-left: 3.5mm;
+				}
+			}
+		}
+	}
+}
+
+.obifuu {
+	.sheets {
+		width: 297mm;
+		height: 420mm;
+		padding: 5.5mm 31mm 34.5mm 16mm; //左は実は15
+		page-break-after: always;
+
+		.border {
+			background: url(../../public/img/dotline.svg) transparent no-repeat;
+			background-position: right top;
+			background-size: 1mm 382.4mm;
+			width: min-content;
+
+			.sheet {
+				height: 95mm;
+				width: 250mm;
+				background: url(../../public/img/obihu.svg) transparent no-repeat 38mm 0mm;
+				background-size: auto 95mm;
+				padding: 40mm 0 0 63mm;
+				font-size: 10.5pt;
+				position: relative;
+
+			}
+
+			.sheet::before {
+				position: absolute;
+				content: "";
+				left: 0;
+				top: 0;
+				width: 4mm;
+				height: 4mm;
+				background: url(../../public/img/75250323dc32c4ea.svg) transparent no-repeat;
+				background-position: left top;
+			}
+
+			.sheet::after {
+				position: absolute;
+				content: "";
+				left: 0;
+				bottom: 0;
+				width: 4mm;
+				height: 4mm;
+				background: url(../../public/img/75250323dc32c4ea.svg) transparent no-repeat;
+				transform: scale(1, -1);
+				background-position: left bottom;
+			}
+
+			.sheet+.sheet {
+				margin: -0.4mm 0;
+			}
+
+			.sheet1::before {
+				position: absolute;
+				content: "";
+				top: 0;
+				right: .5mm;
+				width: 4mm;
+				height: 4mm;
+				background: url(../../public/img/ed1a4d2f311ffaf0.svg) transparent no-repeat;
+				background-position: right top;
+			}
+
+			.sheet1::after {
+				position: absolute;
+				content: "";
+				bottom: 0;
+				right: .5mm;
+				width: 4mm;
+				height: 4mm;
+				background: url(../../public/img/ed1a4d2f311ffaf0.svg) transparent no-repeat;
+				transform: scale(1, -1);
+				background-position: right bottom;
+			}
+
+
+
+			.sheet2 {
+				padding-left: 2mm;
+				height: 11.7mm;
+			}
+
+			.sheet3 {
+				padding-left: 2mm;
+				margin: 1mm 0 0 0;
+			}
+		}
+	}
+}
+
+@media print {
+	* {
+		-webkit-print-color-adjust: exact;
+	}
+
+	.printing {
+		display: block;
+		height: auto;
+
+		header {
+			display: none;
+		}
+
+		.total-count {
+			display: none;
+		}
+
+		main {
+			display: block;
+			height: auto;
+		}
+	}
+
+	.sheets.to-portrait {
+		page-break-after: always;
+		width: 100mm;
+		height: 147.9mm; // ページオーバー分
+
+		.letter {
+			transform: rotate(-90deg) translate(-100%, 0%);
+			transform-origin: 0 0;
+			width: 148mm;
+			height: 100mm;
+		}
+	}
+
+	.sheets.to-sticker {
+		width: 210mm;
+		height: 296mm;
+	}
+
+	.sheets.to-obifuu {
+		width: 297mm;
+		height: 419.5mm; // ページオーバー分
+	}
+}
